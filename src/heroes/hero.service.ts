@@ -19,14 +19,20 @@ export class HeroService {
     }
 
     async findById(id: number): Promise<Hero> {
-        return await this.heroRepo.findOne(id);
+        return await this.heroRepo.findOneOrFail({ where: { id } });
     }
 
     async update(id: number, hero: Hero) {
-        await this.heroRepo.update(id, hero);
+        const existing = await this.heroRepo.findOneOrFail({ where: { id } });
+        if (existing) {
+            await this.heroRepo.update(existing._id, hero);
+        }
     }
 
     async delete(id: number) {
-        await this.heroRepo.delete(id);
+        const existing = await this.heroRepo.findOneOrFail({ where: { id } });
+        if (existing) {
+            await this.heroRepo.delete(existing._id);
+        }
     }
 }
