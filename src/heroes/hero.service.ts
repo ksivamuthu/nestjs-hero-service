@@ -1,28 +1,32 @@
 import { Injectable } from '@nestjs/common';
 import { Hero } from './hero.model';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class HeroService {
-    private readonly heroes: Map<number, Hero> = new Map<number, Hero>();
+    constructor(
+        @InjectRepository(Hero)
+        private readonly heroRepo: Repository<Hero>,
+      ) {}
 
-    create(hero: Hero) {
-        this.heroes.set(hero.id, hero);
+    async create(hero: Hero) {
+      await this.heroRepo.save(hero);
     }
 
-    findAll(): Hero[] {
-        return Array.from(this.heroes.values());
+    async findAll(): Promise<Hero[]> {
+        return await this.heroRepo.find();
     }
 
-    findById(id: number): Hero {
-        return this.heroes.get(id);
+    async findById(id: number): Promise<Hero> {
+        return await this.heroRepo.findOne(id);
     }
 
-    update(id: number, hero: Hero) {
-        if (this.heroes.has(id))
-            this.heroes.set(id, hero);
+    async update(id: number, hero: Hero) {
+        await this.heroRepo.update(id, hero);
     }
 
-    delete(id: number) {
-        this.heroes.delete(id);
+    async delete(id: number) {
+        await this.heroRepo.delete(id);
     }
 }
