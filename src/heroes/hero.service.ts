@@ -25,14 +25,14 @@ export class HeroService {
     async update(id: number, hero: Hero) {
         const existing = await this.heroRepo.findOneOrFail({ where: { id } });
         if (existing) {
-            await this.heroRepo.update(existing._id, hero);
+            await this.heroRepo.save(Object.assign(existing, hero));
         }
     }
 
     async delete(id: number) {
         const existing = await this.heroRepo.findOneOrFail({ where: { id } });
         if (existing) {
-            await this.heroRepo.delete(existing._id);
+            await this.heroRepo.remove(existing);
         }
     }
 }
