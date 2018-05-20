@@ -29,7 +29,7 @@ Edit [ormconfig.js](./ormconfig.js) in root directory to match the host settings
 
 ## Code Structure
 
-[Hero Module](./heroes/hero.module.ts)
+[Hero Module](./src/heroes/hero.module.ts)
 
 ```js
 @Module({
@@ -40,7 +40,7 @@ Edit [ormconfig.js](./ormconfig.js) in root directory to match the host settings
 export class HeroModule {}
 ```
 
-[Hero Controller](./heroes/hero.controller.ts)
+[Hero Controller](./src/heroes/hero.controller.ts)
 
 ```js
 @Controller('heroes')
@@ -66,7 +66,7 @@ export class HeroController {
 }
 ```
 
-[Hero Service](./heroes/hero.service.ts)
+[Hero Service](./src/heroes/hero.service.ts)
 
 ```js
 @Injectable()
@@ -85,7 +85,7 @@ export class HeroService {
 
 ```
 
-[Hero Model](./heroes/hero.model.ts)
+[Hero Model](./src/heroes/hero.model.ts)
 
 ```js
 @Entity()
