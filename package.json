@@ -20,6 +20,7 @@
     "@nestjs/common": "^5.0.0-beta.6",
     "@nestjs/core": "^5.0.0-beta.6",
     "@nestjs/microservices": "^5.0.0-beta.6",
+    "@nestjs/swagger": "^2.0.0",
     "@nestjs/testing": "^5.0.0-beta.6",
     "@nestjs/typeorm": "^3.0.0",
     "@nestjs/websockets": "^5.0.0-beta.6",
