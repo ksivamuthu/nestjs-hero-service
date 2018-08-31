@@ -1,10 +1,11 @@
-import { Entity, Column, ObjectIdColumn, ObjectID, PrimaryGeneratedColumn, PrimaryColumn, Index } from 'typeorm';
+import { Column, Entity, Index, ObjectID, ObjectIdColumn } from "typeorm";
 
 @Entity()
 export class Hero {
-    @ObjectIdColumn() readonly _id: ObjectID;
+    // tslint:disable-next-line:variable-name
+    @ObjectIdColumn() public readonly _id: ObjectID;
 
-    @Column() @Index({ unique: true }) readonly id: number;
-    @Column() readonly name: string;
-    @Column() readonly saying: string;
+    @Column() @Index({ unique: true }) public readonly id: number;
+    @Column() public readonly name: string;
+    @Column() public readonly saying: string;
 }

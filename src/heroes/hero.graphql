@@ -1,0 +1,9 @@
+type Query {
+  allHeroes: [Hero]
+}
+
+type Hero {
+  id: Int,
+  name: String,
+  saying: String
+}
