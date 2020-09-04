@@ -30,7 +30,7 @@
     "fastify-formbody": "^2.0.0",
     "graphql": "^0.13.2",
     "graphql-tools": "^3.1.1",
-    "mongodb": "^3.1.0-beta4",
+    "mongodb": "^3.1.13",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
     "typeorm": "^0.2.6",
